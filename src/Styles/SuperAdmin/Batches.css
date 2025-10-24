@@ -1,0 +1,1139 @@
+/* Batches.css (Refactored/Augmented) */
+
+/* =========================================================================
+   GENERAL LAYOUT AND STEP CARDS (New Professional Look)
+   ========================================================================= */
+
+.batch_wrapper {
+    padding-inline: var(--space-8);
+    min-height: 100vh;
+    padding-top: var(--space-6);
+}
+
+.batch_title {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gray-900);
+    margin-bottom: var(--space-8);
+}
+
+.step_card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-200); /* Lighter border */
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    margin-bottom: var(--space-8);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Softer shadow */
+}
+
+.step_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-gray-100); /* Lighter divider */
+    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+.step_title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--brand-pink);
+    margin: 0;
+}
+
+.step_actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+/* =========================================================================
+   SEARCH BAR REFINEMENT (For Step 1 Card - Aligned Right)
+   ========================================================================= */
+
+.batch_search-bar {
+    position: relative;
+    display: flex; 
+    align-items: center;
+}
+
+.batch_search-bar input {
+    padding: var(--space-3) var(--space-4) var(--space-3) var(--space-10); /* Padding for icon */
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    width: 250px;
+    transition: all var(--transition-fast);
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-700);
+}
+
+.batch_search-bar input:focus {
+    border-color: var(--brand-pink);
+    box-shadow: 0 0 0 2px var(--brand-pink-light);
+    outline: none;
+    width: 280px; 
+}
+
+.batch_search-icon {
+    position: absolute;
+    left: var(--space-3);
+    color: var(--color-gray-500);
+    pointer-events: none; 
+}
+
+/* =========================================================================
+   CARD GRIDS (FOR SELECTION TILES)
+   ========================================================================= */
+
+.entity_card_grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+/* --- Institution Card Styles (Step 1) --- */
+.inst_card {
+    background-color: var(--color-gray-50);
+    border: 2px solid var(--color-gray-200);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex: 0 0 200px; 
+    text-align: center;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-gray-800);
+    box-shadow: var(--shadow-xs);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inst_card:hover {
+    border-color: var(--brand-orange);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+}
+
+.inst_card-icon {
+    color: var(--brand-orange);
+    margin-bottom: var(--space-2);
+}
+
+.inst_card-name {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+}
+
+.inst_card.inst_active {
+    border-color: var(--brand-pink);
+    background-color: var(--brand-pink-light);
+    color: var(--color-gray-900);
+    box-shadow: 0 0 0 3px var(--brand-pink-light);
+}
+
+/* --- Stream/Course Category Card Styles (Step 2) --- */
+.stream_card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-300);
+    border-left: 5px solid var(--color-info); 
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex: 1 1 250px; 
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-gray-800);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    box-shadow: var(--shadow-xs);
+}
+
+.stream_card:hover {
+    box-shadow: var(--shadow-sm);
+}
+
+.stream_card-name {
+    font-size: var(--font-size-base);
+}
+
+.stream_card.stream_active {
+    border: 2px solid var(--brand-pink);
+    border-left: 5px solid var(--brand-pink);
+    background-color: var(--brand-pink-light);
+    color: var(--color-gray-900);
+    box-shadow: var(--shadow-md);
+}
+
+/* --- Course Level Card Styles (Step 3: User's requested 'separate color' card) --- */
+
+.course_card {
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex: 1 1 280px; 
+    box-shadow: var(--shadow-sm);
+    min-height: 100px;
+    position: relative;
+    border: 1px solid transparent;
+    overflow: hidden;
+    color: var(--color-gray-900);
+}
+
+.course_card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15; 
+    z-index: 0;
+}
+
+.course_card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.course_card.course_active {
+    border-width: 2px;
+    border-style: solid;
+    box-shadow: var(--shadow-lg);
+}
+
+/* Card Icons are positioned at the top right */
+.course_card-icon {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    z-index: 1;
+    color: var(--color-gray-900); /* Default to dark text */
+}
+
+.course_card-name {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-1);
+    position: relative;
+    z-index: 1;
+}
+
+.course_card-stream {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-gray-700);
+    position: relative;
+    z-index: 1;
+}
+
+/* Dynamic Color Palette using index.css variables */
+/* Pink Theme */
+.course-color-0 { border-color: var(--brand-pink); }
+.course-color-0::before { background-color: var(--brand-pink); }
+.course-color-0.course_active { border-color: var(--brand-pink-dark); background-color: var(--brand-pink-light); }
+
+/* Info/Blue Theme */
+.course-color-1 { border-color: var(--color-info); }
+.course-color-1::before { background-color: var(--color-info); }
+.course-color-1.course_active { border-color: var(--color-info-dark); background-color: var(--color-info-light); }
+
+/* Success/Green Theme */
+.course-color-2 { border-color: var(--color-success); }
+.course-color-2::before { background-color: var(--color-success); }
+.course-color-2.course_active { border-color: var(--color-success-dark); background-color: var(--color-success-light); }
+
+/* Warning/Orange Theme */
+.course-color-3 { border-color: var(--brand-orange); }
+.course-color-3::before { background-color: var(--brand-orange); }
+.course-color-3.course_active { border-color: var(--brand-orange-dark); background-color: var(--brand-orange-light); }
+
+
+/* =========================================================================
+   BUTTONS AND MISC (Refining existing styles with variables)
+   ========================================================================= */
+
+.batch_btn-primary, .batch_btn-secondary, .batch_btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+    border: 1px solid transparent;
+    font-size: var(--font-size-sm);
+}
+
+.batch_btn-primary {
+    background-color: var(--brand-pink);
+    color: var(--color-white);
+}
+
+.batch_btn-primary:hover {
+    background-color: var(--brand-pink-dark);
+    box-shadow: var(--shadow-sm);
+}
+
+.batch_btn-secondary {
+    background-color: var(--color-white);
+    color: var(--brand-pink);
+    border: 1px solid var(--brand-pink);
+}
+
+.batch_btn-secondary:hover {
+    background-color: var(--brand-pink-light);
+}
+
+/* Table container refinement */
+.batch_table-container {
+    overflow-x: auto;
+    margin-top: var(--space-6);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.batch_table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0;
+}
+
+.batch_table th, .batch_table td {
+    padding: var(--space-4) var(--space-4); /* Increased vertical padding */
+    font-size: var(--font-size-sm);
+    text-align: left;
+    border-bottom: 1px solid var(--color-gray-200);
+    vertical-align: middle;
+}
+
+/* Sticky Header Effect */
+.batch_table thead th {
+    background-color: var(--brand-pink-dark); 
+    color: white;
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Zebra Striping for Readability */
+.batch_table tbody tr:nth-child(even) {
+    background-color: var(--color-gray-50);
+}
+
+/* NEW: Row Selectability - Enhanced */
+.batch_selectable-row {
+    cursor: pointer;
+    transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.batch_selectable-row:hover {
+    background-color: var(--color-gray-100); 
+    transform: none; 
+}
+
+.batch_selectable-row.batch_selected-row {
+    background-color: var(--brand-pink-light);
+    color: var(--color-gray-900);
+    font-weight: var(--font-weight-semibold);
+    /* Subtle inner shadow/outline to denote selection */
+    box-shadow: inset 4px 0 0 0 var(--brand-pink);
+}
+.batch_selectable-row.batch_selected-row:hover {
+    background-color: var(--brand-pink-light); /* Maintain selection color on hover */
+}
+
+/* Table Stats (Total Subjects, Total Classes) - Enhanced UI */
+.batch_stat-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    background-color: var(--color-gray-200);
+    color: var(--color-gray-900);
+    font-weight: var(--font-weight-bold);
+    box-shadow: var(--shadow-xs);
+}
+
+
+/* Status Pill Refinement */
+.batch_status-pill {
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.batch_status-active { 
+    background-color: var(--color-success-light); 
+    color: var(--color-success-dark); 
+    border: 1px solid var(--color-success-dark); 
+}
+.batch_status-inactive { 
+    background-color: var(--color-gray-200); 
+    color: var(--color-gray-700); 
+    border: 1px solid var(--color-gray-400); 
+}
+
+/* Teacher Pill Refinement - ENHANCED */
+.batch_teacher-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px; 
+    align-items: center;
+}
+.batch_teacher-pill {
+    background-color: var(--color-info-light);
+    color: var(--color-info-dark);
+    padding: 3px 8px;
+    border-radius: var(--radius-md); 
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+    box-shadow: var(--shadow-xs);
+}
+.batch_teacher-more {
+    background-color: var(--brand-orange-light);
+    color: var(--brand-orange-dark);
+    padding: 3px 8px;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+}
+
+/* Action Column Refinement */
+.batch_table-actions-col {
+    width: 120px; /* Give more space for actions */
+    text-align: center;
+    
+}
+.batch_action-btn {
+    padding: var(--space-1);
+    border-radius: var(--radius-sm);
+    background-color: white;
+    
+    transition: background-color var(--transition-fast);
+}
+.batch_action-btn:hover {
+    background-color: white;
+}
+.batch_edit-btn{ color: green;border: 1px solid green;margin-right: var(--space-5); }
+.batch_delete-btn{ color: red;border: 1px solid red; }
+
+.batch_no-results-tile {
+    /* Adjusted to fit new grid layout */
+    padding: var(--space-6);
+    color: var(--color-gray-600);
+    font-style: italic;
+    flex: 1 1 100%;
+    text-align: center;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    background-color: var(--color-gray-100);
+}
+
+
+/* =========================================================================
+   CLASS CARDS (STEP 5) - ENHANCED UI
+   ========================================================================= */
+
+.class_card_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: var(--space-5); 
+    padding-top: var(--space-4);
+}
+
+.class_card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-300);
+    border-top: 5px solid var(--color-gray-400); /* Top border for emphasis */
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.class_card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1; 
+    z-index: 0;
+    background-color: var(--brand-pink); /* Default background color for gradient */
+    transition: opacity var(--transition-fast);
+}
+
+.class_card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--brand-pink);
+    transform: translateY(-3px);
+}
+
+.class_card.class_active {
+    border-color: var(--brand-pink);
+    border-top: 5px solid var(--brand-pink);
+    box-shadow: 0 0 0 4px var(--brand-pink-light); /* Stronger outline */
+    transform: translateY(-1px);
+}
+.class_card.class_active::before {
+    opacity: 0.2;
+}
+
+/* Dynamic Card Colors */
+.class_card.class-color-0 { border-top-color: var(--brand-pink); }
+.class_card.class-color-0::before { background-color: var(--brand-pink); }
+.class_card.class-color-1 { border-top-color: var(--color-info); }
+.class_card.class-color-1::before { background-color: var(--color-info); }
+.class_card.class-color-2 { border-top-color: var(--color-success); }
+.class_card.class-color-2::before { background-color: var(--color-success); }
+.class_card.class-color-3 { border-top-color: var(--brand-orange); }
+.class_card.class-color-3::before { background-color: var(--brand-orange); }
+
+
+.class_card-icon {
+    color: var(--color-gray-700);
+    margin-bottom: var(--space-3);
+    position: relative;
+    z-index: 1;
+}
+
+.class_card-name {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gray-900);
+    position: relative;
+    z-index: 1;
+}
+
+.class_card-info {
+    font-size: var(--font-size-base);
+    color: var(--color-gray-600);
+    margin-top: var(--space-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-1);
+    position: relative;
+    z-index: 1;
+}
+.class_card-info-icon {
+    color: var(--color-success-dark);
+}
+
+
+/* =========================================================================
+   CLASS DETAILS (STEP 6) - ENHANCED UI
+   ========================================================================= */
+
+.batch_class-detail-section {
+    padding-bottom: var(--space-8);
+}
+
+.batch_detail-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8); /* Space between the detail cards and the timetable */
+}
+
+/* Detail Cards Grid */
+.batch_detail-grid {
+    /* 1: Students (small stat), 2: Subjects/Teachers (list) */
+    grid-template-columns: 1fr 2fr; 
+    display: grid;
+    gap: var(--space-5);
+    padding-top: var(--space-4);
+}
+
+.batch_detail-item {
+    padding: var(--space-5);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+     background-color:  var(--brand-orange) ;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.batch_detail-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.batch_detail-header strong {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gray-800);
+}
+
+/* Specific Detail Item Styling */
+.item-students .batch_detail-icon { color: var(--color-success-dark); }
+.item-students strong { color: var(--color-success-dark); }
+.item-students .batch_detail-value {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-success-dark);
+    margin-top: var(--space-3);
+    text-align: center;
+}
+
+/* --- Subject-Teacher List Styling (New) --- */
+.item-subjects-teachers {
+    /* Use brand pink/info colors */
+    border-left: 5px solid var(--brand-pink);
+}
+.item-subjects-teachers .batch_detail-icon { color: var(--brand-pink-dark); }
+.item-subjects-teachers strong { color: var(--brand-pink-dark); }
+
+.batch_subject-teacher-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+    font-size: var(--font-size-sm);
+    max-height: 200px; 
+    overflow-y: auto;
+}
+
+.subject-teacher-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2) 0;
+    border-bottom: 1px dashed var(--color-gray-200);
+    transition: background-color 0.1s;
+}
+
+.subject-teacher-row:hover {
+    background-color: var(--color-gray-100);
+}
+
+.subject-teacher-row:last-child {
+    border-bottom: none;
+}
+
+.subject-name {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-gray-700);
+}
+
+.teacher-name {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-info-dark);
+    /* Adding a light pill effect */
+    background-color: var(--color-info-light);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+}
+
+/* =========================================================================
+   TIMETABLE STYLES (New Component) - ENHANCED UI
+   ========================================================================= */
+
+.batch_timetable-container {
+    padding: var(--space-5);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.timetable_heading {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--brand-orange-dark);
+    margin-top: 0;
+    margin-bottom: var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.timetable_legend {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-600);
+    margin-bottom: var(--space-4);
+    font-style: italic;
+    padding: var(--space-2);
+    border-left: 3px solid var(--color-info);
+    background-color: var(--color-info-light);
+}
+
+.batch_timetable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.batch_timetable th, .batch_timetable td {
+    border: 1px solid var(--color-gray-300);
+    padding: var(--space-3);
+    text-align: center;
+    font-size: var(--font-size-sm);
+    vertical-align: middle;
+}
+
+.batch_timetable thead th {
+    background-color: var(--brand-pink-dark);
+    color: var(--color-white);
+    font-weight: var(--font-weight-bold);
+    border-color: var(--brand-pink-dark);
+}
+
+.batch_timetable tbody th, .batch_timetable tbody td {
+    border-color: var(--color-gray-200);
+}
+
+.time-col {
+    background-color: var(--color-gray-100);
+    font-weight: var(--font-weight-semibold);
+    width: 150px; /* Fixed width for time column */
+    position: sticky;
+    left: 0;
+    z-index: 5;
+}
+
+.slot-time {
+    font-size: var(--font-size-base);
+    color: var(--color-gray-800);
+}
+.slot-period {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-600);
+}
+
+/* Timetable Cell Styling (Content) */
+.timetable-cell {
+    position: relative;
+    cursor: default;
+    transition: all 0.15s;
+    overflow: hidden;
+}
+
+.timetable-cell:hover {
+    box-shadow: inset 0 0 0 3px var(--color-gray-700);
+    z-index: 6;
+}
+
+.cell-subject {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gray-900);
+    font-size: var(--font-size-sm);
+    line-height: 1.2;
+}
+
+.cell-teacher {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-700);
+    margin-top: 2px;
+}
+
+/* Dynamic Cell Colors (Based on Subject Index) */
+.timetable-cell.color-0 { background-color: #ffe0e9; border-left: 4px solid var(--brand-pink); }
+.timetable-cell.color-1 { background-color: #e3f2fd; border-left: 4px solid var(--color-info); }
+.timetable-cell.color-2 { background-color: #e8f5e9; border-left: 4px solid var(--color-success); }
+.timetable-cell.color-3 { background-color: #fff3e0; border-left: 4px solid var(--brand-orange); }
+
+
+/* Separator Rows for Break/Lunch Alignment */
+.timetable-separator-row.break .separator-cell {
+    background-color: #fce4ec; /* Light pink */
+    color: var(--brand-pink-dark);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+    padding: var(--space-1) var(--space-3);
+    border: none;
+    border-bottom: 2px dashed var(--brand-pink-light);
+}
+.timetable-separator-row.lunch .separator-cell {
+    background-color: #fffde7; /* Light yellow */
+    color: var(--brand-orange-dark);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+    padding: var(--space-1) var(--space-3);
+    border: none;
+    border-bottom: 2px dashed var(--brand-orange-light);
+}
+
+
+/* =========================================================================
+   MODAL STYLING (General)
+   ========================================================================= */
+.batch_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.batch_modal-content {
+    background-color: var(--color-white);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    width: 80%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-out;
+}
+/* New Large Modal Size for Batch Form */
+.batch_modal-large {
+    max-width: 1000px;
+    width: 80%;
+}
+
+.batch_modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.batch_modal-header h3 {
+    margin: 0;
+    font-size: var(--font-size-xl);
+    color: var(--brand-pink);
+}
+
+.batch_close-modal {
+    cursor: pointer;
+    color: var(--color-gray-500);
+    transition: color 0.15s;
+}
+.batch_close-modal:hover {
+    color: var(--color-gray-900);
+}
+
+.batch_modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-gray-100);
+}
+
+
+/* =========================================================================
+   BATCH FORM STYLING (NEW)
+   ========================================================================= */
+
+.batch_form-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Core Details column smaller than Subjects column */
+    gap: var(--space-6);
+}
+
+.batch_form-column {
+    padding: var(--space-4);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+}
+.column-core {
+    background-color: var(--color-gray-50);
+}
+.column-subjects {
+    background-color: var(--color-white);
+}
+
+.batch_form-column h4 {
+    margin-top: 0;
+    margin-bottom: var(--space-4);
+    color: var(--color-gray-800);
+    font-size: var(--font-size-lg);
+    border-bottom: 2px solid var(--color-gray-100);
+    padding-bottom: var(--space-2);
+}
+
+.batch_form-group {
+    margin-bottom: var(--space-4);
+}
+
+.batch_form-row {
+    display: flex;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+.batch_form-row .batch_form-group {
+    flex: 1;
+    margin-bottom: 0; /* Handled by row margin */
+}
+
+.batch_form-group label {
+    display: block;
+    font-weight: var(--font-weight-medium);
+    margin-bottom: 5px;
+    color: var(--color-gray-700);
+    font-size: var(--font-size-sm);
+}
+
+.batch_form-group input[type="text"],
+.batch_form-group input[type="date"],
+.batch_form-group select {
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    transition: border-color 0.15s;
+    background-color: var(--color-white);
+}
+.batch_form-group input:focus,
+.batch_form-group select:focus {
+    border-color: var(--brand-pink);
+    outline: none;
+    box-shadow: 0 0 0 2px var(--brand-pink-light);
+}
+
+.batch_read-only-field {
+    background-color: var(--color-gray-100) !important;
+    color: var(--color-gray-600) !important;
+    cursor: not-allowed;
+    border-style: dashed;
+}
+
+/* --- Subject Configuration --- */
+
+.batch_subject-box {
+    margin-bottom: var(--space-4);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-gray-300);
+}
+.common-subjects {
+    border-left: 5px solid var(--color-success);
+    background-color: var(--color-success-light-extra); /* Very light green */
+}
+.specific-subjects {
+    border-left: 5px solid var(--brand-orange);
+    background-color: var(--brand-orange-light-extra); /* Very light orange */
+}
+
+.batch_subject-box h5 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-base);
+    color: var(--color-gray-800);
+    margin-top: 0;
+    margin-bottom: var(--space-3);
+}
+
+.batch_subject-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: var(--space-1);
+}
+
+.batch_subject-pill-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.batch_subject-pill {
+    padding: 6px 10px;
+    background-color: var(--color-gray-200);
+    color: var(--color-gray-800);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    transition: background-color 0.15s, box-shadow 0.15s;
+    margin-left: -2px; /* Pull pill closer to checkbox */
+}
+
+.batch_subject-pill-label input[type="checkbox"] {
+    display: none;
+}
+
+.batch_subject-pill-label input[type="checkbox"]:checked + .batch_subject-pill {
+    background-color: var(--brand-pink);
+    color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+}
+.common-subjects .batch_subject-pill-label input[type="checkbox"]:checked + .batch_subject-pill {
+    background-color: var(--color-success-dark);
+}
+.specific-subjects .batch_subject-pill-label input[type="checkbox"]:checked + .batch_subject-pill {
+    background-color: var(--brand-orange-dark);
+}
+
+.batch_class-group-section h6 {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--brand-orange-dark);
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-2);
+    border-bottom: 1px dotted var(--brand-orange-light);
+}
+
+/* =========================================================================
+   CONFIRMATION OVERLAY STYLING (FIXED)
+   ========================================================================= */
+
+.batch_modal-confirmation-overlay {
+    /* FIX: This is now positioned absolutely relative to its parent .batch_modal (which is position: relative) */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Use a semi-transparent white background to "blur" the form behind it */
+    background-color: rgba(255, 255, 255, 0.95); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1010; /* Must be higher than the content z-index */
+    backdrop-filter: blur(4px); /* Visual effect */
+}
+
+.batch_confirm-popup {
+    /* Overrides the default batch_modal-content styles for a smaller, focused box */
+    max-width: 380px; 
+    width: 90%;
+    padding: var(--space-6);
+    text-align: center;
+    border: 2px solid var(--brand-pink);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: none !important; /* Reset scale transform */
+    /* Ensure the background is fully white inside the popup */
+    background-color: var(--color-white); 
+    /* Important overrides from .batch_modal-content */
+    max-height: none; 
+    overflow-y: visible;
+}
+
+.batch_confirm-icon {
+    color: var(--brand-orange-dark);
+    margin-bottom: var(--space-4);
+}
+
+.batch_confirm-popup h4 {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-900);
+    margin-bottom: var(--space-3);
+}
+
+.batch_confirm-popup p {
+    font-size: var(--font-size-base);
+    color: var(--color-gray-700);
+    margin-bottom: var(--space-6);
+}
+
+.batch_confirm-popup .batch_modal-actions {
+    /* Center actions in the confirmation popup */
+    justify-content: center;
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* =========================================================================
+   RESPONSIVE DESIGN 
+   ========================================================================= */
+
+@media (max-width: 1024px) {
+    .batch_form-grid {
+        grid-template-columns: 1fr; /* Stack columns on tablet/mobile */
+    }
+    .batch_modal-large {
+        max-width: 80%;
+    }
+    .batch_detail-grid {
+        grid-template-columns: 1fr; /* Stack the detail cards */
+    }
+}
+@media (max-width: 768px) {
+    .batch_wrapper {
+        padding-inline: var(--space-4);
+    }
+    
+    /* Step Header/Actions */
+    .step_header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .step_actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .batch_search-bar {
+        width: 100%;
+    }
+
+    .batch_search-bar input {
+        width: 100%;
+        width: 100% !important; /* Override focus width change */
+    }
+
+    .inst_card, .course_card, .stream_card {
+        flex: 1 1 calc(50% - var(--space-4) / 2);
+    }
+     /* Timetable needs horizontal scrolling on mobile */
+    .batch_timetable-container {
+        overflow-x: auto;
+    }
+    .batch_timetable {
+        min-width: 600px; /* Ensure table is wide enough for content */
+    }
+    .time-col {
+        position: static; /* Disable sticky time column on very small screens */
+    }
+}
+@media (max-width: 640px) {
+    .batch_modal-content {
+        padding: var(--space-4);
+        max-width: 100%;
+        margin: var(--space-2);
+    }
+    .batch_form-row {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    .batch_subject-box {
+        padding: var(--space-3);
+    }
+}
+@media (max-width: 480px) {
+    .inst_card, .course_card, .stream_card {
+        flex: 1 1 100%;
+    }
+}

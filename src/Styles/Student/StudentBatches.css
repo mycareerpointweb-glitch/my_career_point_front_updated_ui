@@ -1,0 +1,228 @@
+/*
+ * StudentBatches.css
+ * Final Refined Styles using theme variables from index.css
+ */
+
+/* General Layout & Card Base Styling */
+.student-batches-container {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-8);
+}
+
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-8);
+  border: 1px solid var(--color-gray-300);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+/* Hover effect for main cards */
+.card:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+.card-header {
+  padding: var(--space-4);
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+}
+
+.card-header h2 {
+  color: var(--color-white);
+  margin-bottom: 0;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+}
+
+/* Background Utility Classes */
+.bg-brand-pink { background-color: var(--brand-pink); }
+.bg-brand-orange { background-color: var(--brand-orange); color: white; }
+.bg-brand-pink-dark { background-color: var(--brand-orange-light);color: white; }
+.bg-brand-timetable{
+    background-color: var(--brand-pink);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: var(--space-4);
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+}
+
+
+/* --- Batch Details Styling --- */
+
+.batch-info-box {
+  background-color: var(--color-gray-50);
+  border: 1px solid var(--brand-pink-light); 
+  padding: var(--space-5);
+  transition: box-shadow var(--transition-fast);
+}
+
+.batch-info-box:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.batch-info-box p {
+  margin-bottom: var(--space-3);
+  font-size: var(--font-size-base);
+}
+
+.batch-info-box strong {
+    color: var(--color-gray-900);
+    font-weight: var(--font-weight-semibold);
+    min-width: 120px;
+    display: inline-block;
+}
+
+/* Updated Grid for Batch Info + Instructors */
+.batch-info-grid {
+    display: grid;
+    /* 1 column on mobile, 2 columns on desktop/larger screens */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-3) var(--space-6);
+}
+
+.badge-mode {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--font-size-sm);
+    box-shadow: var(--shadow-xs);
+}
+
+/* Instructor Section Inside Grid */
+.instructors-in-grid {
+    /* Ensures this element spans the whole row if space is tight, otherwise behaves like a grid item */
+    grid-column: 1 / -1; 
+    border-top: 1px solid var(--color-gray-200);
+    padding-top: var(--space-4);
+    margin-top: var(--space-2);
+}
+
+.instructors-in-grid > p {
+    font-size: var(--font-size-base);
+    color: var(--color-gray-900);
+    font-weight: var(--font-weight-semibold);
+}
+
+.instructor-pills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.instructor-pill {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-sm);
+  cursor: default;
+  transition: all var(--transition-fast);
+}
+
+.instructor-pill:hover {
+    background-color: var(--brand-pink);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+
+/* --- Subjects Grid Styling (Remains the same) --- */
+.subject-grid {
+    padding: var(--space-8);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-5);
+}
+
+.subject-item-card {
+  border: 1px solid var(--color-gray-300);
+  border-left: 6px solid var(--brand-orange); 
+  padding: var(--space-4);
+  background-color: var(--color-white);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.subject-item-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px); 
+  border-color: var(--brand-orange-dark);
+  background-color: var(--color-gray-50);
+}
+
+.subject-item-card h4 {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: var(--brand-pink-dark);
+}
+
+/* --- Timetable Styling (Remains the same) --- */
+.timetable-table-container {
+  overflow-x: auto;
+}
+
+.timetable-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 900px;
+  border: 1px solid var(--color-gray-300);
+}
+
+.timetable-table-container th,
+.timetable-table-container td {
+  padding: var(--space-3);
+  border: 1px solid var(--color-gray-200);
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+.timetable-table-container thead
+{
+    background-color: var(--brand-orange-light);
+    color: white;
+}
+
+.timetable-table-container th {
+  /* background-color: var(--brand-pink-dark); */
+  font-weight: var(--font-weight-semibold);
+  color: white;
+}
+
+/* .time-column-header {
+  background-color: var(--color-gray-200) !important;
+  color: var(--brand-pink-dark) !important;
+  width: 130px;
+} */
+
+.time-column {
+  background-color: var(--color-gray-50);
+  color: var(--brand-pink-dark);
+}
+
+.table-row-hover:hover {
+    background-color: var(--color-gray-100);
+    transition: background-color var(--transition-fast);
+}
+
+/* Special Period Styles */
+.break-lunch {
+  background-color: var(--color-gray-500);
+  color: white;
+}
+
+/* Night period should visually be dark, but not used in the new data */
+.night-period {
+    background-color: var(--color-gray-800);
+    color: var(--color-white);
+}
+
+.free-period {
+    background-color: var(--color-gray-100); /* Empty slots are light gray */
+}
+
+.regular-period {
+    background-color: var(--color-white);
+    color: var(--color-gray-800);
+}
+
+/* Text Utility Adjustments */
+.text-brand-pink { color: var(--brand-pink); }
+.text-brand-orange { color: var(--brand-orange); }
